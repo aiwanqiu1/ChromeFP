@@ -1,0 +1,11 @@
+# Local browser data and generated runtime files
+/profiles/
+/cache/
+/logs/
+/_probe/
+/*.lnk
+
+# Operating system metadata
+.DS_Store
+Thumbs.db
+Desktop.ini

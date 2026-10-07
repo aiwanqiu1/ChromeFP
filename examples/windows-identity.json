@@ -1,0 +1,45 @@
+{
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{major}.0.0.0 Safari/537.36",
+  "platform": "Win32",
+  "userAgentMetadata": {
+    "brands": [
+      {
+        "brand": "Not A;Brand",
+        "version": "24"
+      },
+      {
+        "brand": "Chromium",
+        "version": "{major}"
+      },
+      {
+        "brand": "Google Chrome",
+        "version": "{major}"
+      }
+    ],
+    "fullVersionList": [
+      {
+        "brand": "Not A;Brand",
+        "version": "24.0.0.0"
+      },
+      {
+        "brand": "Chromium",
+        "version": "{version}"
+      },
+      {
+        "brand": "Google Chrome",
+        "version": "{version}"
+      }
+    ],
+    "fullVersion": "{version}",
+    "platform": "Windows",
+    "platformVersion": "13.0.0",
+    "architecture": "x86",
+    "model": "",
+    "mobile": false,
+    "bitness": "64",
+    "wow64": false,
+    "formFactors": [
+      "Desktop"
+    ]
+  }
+}
