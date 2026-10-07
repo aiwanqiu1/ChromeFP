@@ -205,6 +205,20 @@ profile 名称不能包含路径、Windows 保留名称或末尾空格；代理�
 
 start-chrome.cmd 保持 CRLF 换行和纯 ASCII；中文提示由 Node 输出。工具读取系统代理配置，浏览器数据与锁文件写入项目内的 profiles，不修改 Windows 时区或日常 Chrome 的企业策略。
 
+## 一键上传 GitHub
+
+双击 `upload-github.cmd` 即可将项目提交并推送到当前 `origin` 仓库的当前分支。脚本先拉取远程，再提交本地改动、合并远程同名分支并推送；没有文件改动时仍会上传尚未推送的提交。首次认证由 Git for Windows 的登录窗口完成。
+
+未配置远程时默认使用 `https://github.com/aiwanqiu1/ChromeFP.git`。从 ZIP 解压且没有 Git 历史的项目会初始化为 `main` 分支，这类首次上传需要目标仓库为空（创建时不添加 README）。已有历史的远程仓库应先使用 `git clone` 下载。目标仓库需要已在 GitHub 创建，且当前账号有写入权限。需要使用自己的仓库时运行：
+
+```powershell
+.\upload-github.cmd -RepositoryUrl https://github.com/你的用户名/你的仓库.git
+.\upload-github.cmd -Message "更新浏览器启动器"
+.\upload-github.cmd -DryRun
+```
+
+`-DryRun` 只预览，不提交、修改 Git 配置或连接远程。上传排除浏览器数据、缓存、日志、历史实验和 `.lnk` 快捷方式；若这些文件已被 Git 跟踪，脚本会提示先移出 Git。遇到未完成的 Git 操作或合并冲突时会停止，处理完成后重新运行。
+
 ## 目录与验证
 
 ```text
@@ -213,6 +227,8 @@ launcher-config.json 默认跟随当前系统出口；命令行参数优先
 start-chrome.ps1      快捷方式后台入口（Windows PowerShell 5.1，UTF-8 BOM）
 install-shortcut.ps1  创建或更新桌面与项目内的快捷方式
 start-chrome.cmd      Windows 实时诊断入口
+upload-github.cmd     双击提交并推送到 GitHub
+upload-github.ps1     上传流程与只读预览（Windows PowerShell 5.1）
 assets/chromefp.ico   快捷方式图标
 lib/
   options.mjs         参数与 profile 路径校验
